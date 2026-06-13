@@ -15,9 +15,22 @@ int CoreBalancer::assignTask(Task* task) {
     coreQueues[coreID].push(task);
     coreLoad[coreID]++;
     task->setAssignedCore(coreID);
-    cout << "Task " << task->getName() << " assigned to Core " << coreID 
-              << " (Load: " << coreLoad[coreID] << ")\n";
     return coreID;
+}
+
+void CoreBalancer::forceAssignTask(Task* task, int coreID) {
+    if (coreID >= 0 && coreID < numCores) {
+        coreQueues[coreID].push(task);
+        coreLoad[coreID]++;
+        task->setAssignedCore(coreID);
+    }
+}
+
+void CoreBalancer::clearQueue(int coreID) {
+    if (coreID >= 0 && coreID < numCores) {
+        queue<Task*> empty;
+        swap(coreQueues[coreID], empty);
+    }
 }
 
 int CoreBalancer::getLeastLoadedCore() {
@@ -40,8 +53,6 @@ void CoreBalancer::updateCoreLoad(int coreID, int load) {
 }
 
 void CoreBalancer::balanceLoad() {
-    cout << "\n=== Load Balancing ===\n";
-    
     int maxLoad = -1;
     int minLoad = INT_MAX;
     int sourceCore = -1;
@@ -59,6 +70,9 @@ void CoreBalancer::balanceLoad() {
     }
     
     if (sourceCore != -1 && destCore != -1 && (maxLoad - minLoad > 1)) {
+        cout << "Core " << sourceCore << " Load = " << maxLoad << "\n";
+        cout << "Core " << destCore << " Load = " << minLoad << "\n\n";
+
         if (!coreQueues[sourceCore].empty()) {
             Task* taskToMigrate = coreQueues[sourceCore].front();
             coreQueues[sourceCore].pop();
@@ -68,11 +82,19 @@ void CoreBalancer::balanceLoad() {
             coreLoad[destCore]++;
             taskToMigrate->setAssignedCore(destCore);
             
-            cout << "  [Migration] Moved " << taskToMigrate->getName() 
-                 << " from Core " << sourceCore << " to Core " << destCore << "\n";
+            cout << "Migrating " << taskToMigrate->getName() << "\n";
+            cout << "Core " << sourceCore << " -> Core " << destCore << "\n\n";
+            cout << "Load Balanced\n";
         }
-    } else {
-        cout << "  Cores are balanced. No migration needed.\n";
+    }
+}
+
+void CoreBalancer::migrateTask(int sourceCore, int destCore, Task* task) {
+    if (sourceCore >= 0 && sourceCore < numCores && destCore >= 0 && destCore < numCores) {
+        coreLoad[sourceCore]--;
+        coreLoad[destCore]++;
+        task->setAssignedCore(destCore);
+        coreQueues[destCore].push(task);
     }
 }
 

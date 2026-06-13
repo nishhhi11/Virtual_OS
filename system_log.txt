@@ -1,0 +1,8 @@
+20:07 system.exe started
+20:07 memory.exe started
+20:07 browser.exe started
+20:07 music.exe started
+20:07 audio.exe started
+20:07 game.exe started
+20:07 music.exe acquired SoundCard
+20:07 audio.exe waiting

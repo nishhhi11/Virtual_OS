@@ -31,6 +31,26 @@ public:
     
     int getPriorityQueueSize() const { return priorityQueue.size(); }
     int getProcessingLineSize() const { return fifoQueue.size(); }
+    
+    vector<Task*> getPriorityQueueTasks() const {
+        vector<Task*> tasks;
+        auto pq_copy = priorityQueue;
+        while (!pq_copy.empty()) {
+            tasks.push_back(pq_copy.top());
+            pq_copy.pop();
+        }
+        return tasks;
+    }
+    
+    vector<Task*> getProcessingLineTasks() const {
+        vector<Task*> tasks;
+        auto q_copy = fifoQueue;
+        while (!q_copy.empty()) {
+            tasks.push_back(q_copy.front());
+            q_copy.pop();
+        }
+        return tasks;
+    }
 };
 
 #endif

@@ -21,7 +21,7 @@ bool ResourceManager::requestResource(Task* task, const string& resourceName) {
     } else {
         if (find(it->second.waitingTasks.begin(), it->second.waitingTasks.end(), task->getID()) == it->second.waitingTasks.end()) {
             it->second.waitingTasks.push_back(task->getID());
-            // Add wait edge for the graph
+            
             waitGraph[task->getID()].push_back(it->second.ownerTaskID);
         }
         task->setState(TaskState::WAITING);
@@ -40,11 +40,11 @@ bool ResourceManager::releaseResource(Task* task, const string& resourceName) {
             it->second.waitingTasks.erase(it->second.waitingTasks.begin());
             it->second.ownerTaskID = nextTaskID;
             
-            // Remove the edge for the task that just acquired it
+            
             auto& edges = waitGraph[nextTaskID];
             edges.erase(remove(edges.begin(), edges.end(), task->getID()), edges.end());
             
-            // Update all remaining waiting tasks to point to the new owner
+            
             for (int waitTaskID : it->second.waitingTasks) {
                 auto& waitEdges = waitGraph[waitTaskID];
                 replace(waitEdges.begin(), waitEdges.end(), task->getID(), nextTaskID);
@@ -70,7 +70,7 @@ bool ResourceManager::detectCycleDFS(int currentTask, set<int>& visited, set<int
                 return true;
             }
         } else if (recursionStack.find(neighbor) != recursionStack.end()) {
-            // Cycle detected!
+            
             return true;
         }
     }
@@ -104,12 +104,12 @@ void ResourceManager::resolveDeadlock() {
             pair.second.waitingTasks.clear();
             pair.second.ownerTaskID = -1;
             
-            // Clean up the wait graph for all waiting tasks on this resource
+            
             for (auto& graphPair : waitGraph) {
                 auto& edges = graphPair.second;
                 edges.erase(remove(edges.begin(), edges.end(), owner), edges.end());
             }
-            return; // Break one lock at a time
+            return; 
         }
     }
 }

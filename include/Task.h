@@ -16,17 +16,17 @@ enum class TaskState {
 };
 
 enum class Priority {
-    CRITICAL = 1,    // System processes
-    HIGH = 2,        // Important user processes
-    NORMAL = 3,      // Regular applications
-    LOW = 4,         // Background tasks
-    IDLE = 5         // Optional tasks
+    CRITICAL = 1,    
+    HIGH = 2,        
+    NORMAL = 3,      
+    LOW = 4,         
+    IDLE = 5         
 };
 
 struct Context {
-    int programCounter;     // Current line of code
-    vector<int> registers;  // CPU register values
-    vector<void*> stack;     // Stack pointer values
+    int programCounter;     
+    vector<int> registers;  
+    vector<void*> stack;     
     time_t lastSavedTime;
     
     Context() : programCounter(0), lastSavedTime(0) {}
@@ -41,7 +41,7 @@ private:
     Priority priority;
     Context savedContext;
     string securityID;
-    vector<int> dependencies;  // IDs of tasks this task depends on
+    vector<int> dependencies;  
     int assignedCore;
     time_t creationTime;
     size_t cpuTimeUsed;
@@ -49,7 +49,7 @@ private:
 public:
     Task(int id, const string& name, const string& secID);
     
-    // Getters
+    
     int getID() const { return taskID; }
     string getName() const { return name; }
     size_t getMemoryUsage() const { return memoryUsage; }
@@ -61,30 +61,30 @@ public:
     int getAssignedCore() const { return assignedCore; }
     size_t getCPUTimeUsed() const { return cpuTimeUsed; }
     
-    // Setters
+    
     void setState(TaskState newState) { state = newState; }
     void setPriority(Priority newPriority) { priority = newPriority; }
     void setMemoryUsage(size_t mem) { 
         memoryUsage = mem; 
-        // Simulate memory allocation for demo
+        
         if (mem > 0) {
-            // In real OS, this would allocate actual memory
+            
         }
     }
     void setAssignedCore(int core) { assignedCore = core; }
     void addDependency(int depID);
     void removeDependency(int depID);
     
-    // Context management
+    
     void saveContext(int pc, const vector<int>& regs);
     void restoreContext(int& pc, vector<int>& regs);
     
-    // CPU time tracking
+    
     void addCPUTime(size_t time) { cpuTimeUsed += time; }
     
-    // Comparison operators for priority queue
+    
     bool operator<(const Task& other) const {
-        return priority > other.priority;  // Higher priority first
+        return priority > other.priority;  
     }
     
     void display() const;

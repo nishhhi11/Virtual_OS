@@ -6,7 +6,6 @@ using namespace std;
 
 void Scheduler::addToProcessingLine(Task* task) {
     fifoQueue.push(task);
-    cout << "  📋 Added to Processing Line: " << task->getName() << "\n";
 }
 
 Task* Scheduler::getNextFromProcessingLine() {
@@ -20,8 +19,6 @@ Task* Scheduler::getNextFromProcessingLine() {
 
 void Scheduler::addToPriorityQueue(Task* task) {
     priorityQueue.push(task);
-    cout << "  ⭐ Added to Priority Queue: " << task->getName() 
-              << " (Priority: " << static_cast<int>(task->getPriority()) << ")\n";
 }
 
 Task* Scheduler::getHighestPriorityTask() {

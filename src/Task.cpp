@@ -7,7 +7,7 @@ using namespace std;
 
 Task::Task(int id, const string &name, const string &secID)
     : taskID(id), name(name), memoryUsage(0),
-      state(TaskState::RUNNING), // CHANGE: Start as RUNNING
+      state(TaskState::RUNNING), 
       priority(Priority::NORMAL), securityID(secID), assignedCore(-1),
       creationTime(time(nullptr)), cpuTimeUsed(0) {}
 

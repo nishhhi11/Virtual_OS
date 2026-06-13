@@ -24,7 +24,7 @@ private:
     unordered_map<string, Resource> resources;
     unordered_map<int, vector<int>> waitGraph;
     
-    // Helper for DFS cycle detection
+    
     bool detectCycleDFS(int currentTask, set<int>& visited, set<int>& recursionStack);
     
 public:
@@ -34,8 +34,11 @@ public:
     void resolveDeadlock();
     void displayResources();
     
-    // Get all resources to allow task termination cleanup
+    
     unordered_map<string, Resource>& getResources() { return resources; }
+    
+    
+    const unordered_map<int, vector<int>>& getWaitGraph() const { return waitGraph; }
 };
 
 #endif

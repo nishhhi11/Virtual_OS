@@ -11,14 +11,14 @@ using namespace std;
 
 class TaskManager {
 private:
-    unordered_map<int, Task*> taskDirectory;  // O(1) lookups
+    unordered_map<int, Task*> taskDirectory;  
     int nextTaskID;
     
 public:
     TaskManager();
     ~TaskManager();
     
-    // Task Directory operations
+    
     bool addTask(const string& name, const string& securityID);
     bool removeTask(int taskID);
     Task* findTask(int taskID);
