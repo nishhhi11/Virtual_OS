@@ -412,35 +412,45 @@ Migrating game.exe from Core 2 to Core 1
 
 ### System Startup
 
-<img width="556" height="727" alt="Screenshot 2026-06-14 at 2 00 19 AM" src="https://github.com/user-attachments/assets/d9c00c40-f569-4fdb-9c49-1dd13a766169" />
+<p align = 'left' ><img width="556" height="727" alt="Screenshot 2026-06-14 at 2 00 19 AM" src="https://github.com/user-attachments/assets/d9c00c40-f569-4fdb-9c49-1dd13a766169" /> </p>
+
 
 
 ### Demo Mode Execution
 
-<img width="415" height="666" alt="Screenshot 2026-06-14 at 2 01 34 AM" src="https://github.com/user-attachments/assets/a5825264-e261-40ae-b2a4-d26e1769a87b" />
+<p align = 'left' ><img width="415" height="666" alt="Screenshot 2026-06-14 at 2 01 34 AM" src="https://github.com/user-attachments/assets/a5825264-e261-40ae-b2a4-d26e1769a87b" /></p>
 
-<img width="470" height="675" alt="Screenshot 2026-06-14 at 2 02 00 AM" src="https://github.com/user-attachments/assets/dcffa0e6-fdcf-4fdb-98a0-7d671267a278" />
 
-<img width="510" height="303" alt="Screenshot 2026-06-14 at 2 02 14 AM" src="https://github.com/user-attachments/assets/2fd9f090-22f3-4881-89d2-bea7aae93d8e" />
+<p align = 'left' ><img width="470" height="675" alt="Screenshot 2026-06-14 at 2 02 00 AM" src="https://github.com/user-attachments/assets/dcffa0e6-fdcf-4fdb-98a0-7d671267a278" /></p>
+
+
+<p align = 'left' ><img width="510" height="303" alt="Screenshot 2026-06-14 at 2 02 14 AM" src="https://github.com/user-attachments/assets/2fd9f090-22f3-4881-89d2-bea7aae93d8e" /></p>
+
 
 
 ### Scheduler Running
 
-<img width="451" height="745" alt="Screenshot 2026-06-14 at 2 08 47 AM" src="https://github.com/user-attachments/assets/124c2c2c-1412-4def-8541-7de1f6e6297d" />
+<p align = 'left' ><img width="451" height="745" alt="Screenshot 2026-06-14 at 2 08 47 AM" src="https://github.com/user-attachments/assets/124c2c2c-1412-4def-8541-7de1f6e6297d" /></p>
 
-<img width="398" height="151" alt="Screenshot 2026-06-14 at 2 07 27 AM" src="https://github.com/user-attachments/assets/09c1c590-6fd8-4aac-b1b2-351bfcfe8ac8" />
+
+<p align = 'left' ><img width="398" height="151" alt="Screenshot 2026-06-14 at 2 07 27 AM" src="https://github.com/user-attachments/assets/09c1c590-6fd8-4aac-b1b2-351bfcfe8ac8" /></p>
+
+
 
 ### Dependency and Resource Management
 
-<img width="363" height="207" alt="Screenshot 2026-06-14 at 2 09 39 AM" src="https://github.com/user-attachments/assets/06d05322-a87a-4860-b089-2483eda082bd" />
+<p align = 'left' ><img width="363" height="207" alt="Screenshot 2026-06-14 at 2 09 39 AM" src="https://github.com/user-attachments/assets/06d05322-a87a-4860-b089-2483eda082bd" /></p>
+
 
 ### Task Directory View
 
-<img width="399" height="239" alt="Screenshot 2026-06-14 at 2 10 15 AM" src="https://github.com/user-attachments/assets/ed33dee5-ccec-4d7b-a8b5-8b629c53ebd1" />
+<p align = 'left' ><img width="399" height="239" alt="Screenshot 2026-06-14 at 2 10 15 AM" src="https://github.com/user-attachments/assets/ed33dee5-ccec-4d7b-a8b5-8b629c53ebd1" /></p>
+
 
 ### Core Balancing Output
 
-<img width="460" height="269" alt="Screenshot 2026-06-14 at 2 11 59 AM" src="https://github.com/user-attachments/assets/72733369-834f-4d31-89d2-9941088a0c61" />
+<p align = 'left' ><img width="460" height="269" alt="Screenshot 2026-06-14 at 2 11 59 AM" src="https://github.com/user-attachments/assets/72733369-834f-4d31-89d2-9941088a0c61" /></p>
+
 
 ---
 
