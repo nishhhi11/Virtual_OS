@@ -4,6 +4,9 @@
 #include <iostream>
 #include <cassert>
 
+using namespace std;
+
+
 void testTaskManager() {
     TaskManager tm;
     
@@ -21,7 +24,7 @@ void testTaskManager() {
     assert(tm.removeTask(1));
     assert(tm.getTaskCount() == 1);
     
-    std::cout << "✓ TaskManager tests passed\n";
+    cout << "✓ TaskManager tests passed\n";
 }
 
 void testScheduler() {
@@ -54,7 +57,7 @@ void testScheduler() {
     Context restored = scheduler.restoreContextFromStack();
     assert(restored.programCounter == 100);
     
-    std::cout << "✓ Scheduler tests passed\n";
+    cout << "✓ Scheduler tests passed\n";
 }
 
 void testCoreBalancer() {
@@ -73,16 +76,16 @@ void testCoreBalancer() {
     assert(core1 >= 0 && core1 < 4);
     assert(core2 >= 0 && core2 < 4);
     
-    std::cout << "✓ CoreBalancer tests passed\n";
+    cout << "✓ CoreBalancer tests passed\n";
 }
 
 int main() {
-    std::cout << "Running Unit Tests...\n\n";
+    cout << "Running Unit Tests...\n\n";
     
     testTaskManager();
     testScheduler();
     testCoreBalancer();
     
-    std::cout << "\n✅ All tests passed!\n";
+    cout << "\n✅ All tests passed!\n";
     return 0;
 }

@@ -19,8 +19,12 @@ class Scheduler {
 private:
     priority_queue<Task*, vector<Task*>, ComparePriority> priorityQueue;
     queue<Task*> fifoQueue;
+    stack<Context> contextStack;
     
 public:
+    void saveContextToStack(const Context& ctx);
+    Context restoreContextFromStack();
+    bool hasSavedContexts() const;
     void addToProcessingLine(Task* task);
     Task* getNextFromProcessingLine();
     

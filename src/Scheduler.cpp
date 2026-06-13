@@ -4,6 +4,21 @@
 using namespace std;
 
 
+void Scheduler::saveContextToStack(const Context& ctx) {
+    contextStack.push(ctx);
+}
+
+Context Scheduler::restoreContextFromStack() {
+    if (contextStack.empty()) return Context();
+    Context ctx = contextStack.top();
+    contextStack.pop();
+    return ctx;
+}
+
+bool Scheduler::hasSavedContexts() const {
+    return !contextStack.empty();
+}
+
 void Scheduler::addToProcessingLine(Task* task) {
     fifoQueue.push(task);
 }
