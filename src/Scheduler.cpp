@@ -1,0 +1,40 @@
+#include "../include/Scheduler.h"
+#include <iostream>
+
+using namespace std;
+
+
+void Scheduler::addToProcessingLine(Task* task) {
+    fifoQueue.push(task);
+    cout << "  📋 Added to Processing Line: " << task->getName() << "\n";
+}
+
+Task* Scheduler::getNextFromProcessingLine() {
+    if (fifoQueue.empty()) return nullptr;
+    Task* task = fifoQueue.front();
+    fifoQueue.pop();
+    cout << "  ➤ Removed from Processing Line: " << task->getName() << "\n";
+    return task;
+}
+
+
+void Scheduler::addToPriorityQueue(Task* task) {
+    priorityQueue.push(task);
+    cout << "  ⭐ Added to Priority Queue: " << task->getName() 
+              << " (Priority: " << static_cast<int>(task->getPriority()) << ")\n";
+}
+
+Task* Scheduler::getHighestPriorityTask() {
+    if (priorityQueue.empty()) return nullptr;
+    Task* task = priorityQueue.top();
+    priorityQueue.pop();
+    cout << "  ⚡ Removed from Priority Queue: " << task->getName() << "\n";
+    return task;
+}
+
+
+void Scheduler::displayQueues() {
+    cout << "\n=== Scheduler Status ===\n";
+    cout << "Processing Line size: " << fifoQueue.size() << "\n";
+    cout << "Priority Queue size: " << priorityQueue.size() << "\n";
+}
