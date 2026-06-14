@@ -27,7 +27,6 @@ Task* Scheduler::getNextFromProcessingLine() {
     if (fifoQueue.empty()) return nullptr;
     Task* task = fifoQueue.front();
     fifoQueue.pop();
-    cout << "  ➤ Removed from Processing Line: " << task->getName() << "\n";
     return task;
 }
 
@@ -40,7 +39,6 @@ Task* Scheduler::getHighestPriorityTask() {
     if (priorityQueue.empty()) return nullptr;
     Task* task = priorityQueue.top();
     priorityQueue.pop();
-    cout << "  ⚡ Removed from Priority Queue: " << task->getName() << "\n";
     return task;
 }
 
