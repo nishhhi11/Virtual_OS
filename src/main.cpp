@@ -223,6 +223,16 @@ public:
         }
     }
     
+    void removeDependency(int taskID, int dependsOnID) {
+        Task* task = taskManager.findTask(taskID);
+        if (task) {
+            task->removeDependency(dependsOnID);
+            cout << "🔗 Dependency removed: " << task->getName() << " no longer depends on ID " << dependsOnID << "\n";
+        } else {
+            cout << "╳ Invalid task ID for dependency removal\n";
+        }
+    }
+    
     void requestResource(int taskID, const string& resourceName) {
         Task* task = taskManager.findTask(taskID);
         if (task) {
@@ -634,6 +644,10 @@ public:
                     if (args.size() < 3) cout << "Usage: deps <id> <dependsOn>\n";
                     else addDependency(stoi(args[1]), stoi(args[2]));
                 }
+                else if (baseCmd == "rmdeps") {
+                    if (args.size() < 3) cout << "Usage: rmdeps <id> <dependsOn>\n";
+                    else removeDependency(stoi(args[1]), stoi(args[2]));
+                }
                 else if (baseCmd == "req") {
                     if (args.size() < 3) cout << "Usage: req <id> <resource>\n";
                     else requestResource(stoi(args[1]), args[2]);
@@ -662,6 +676,7 @@ public:
                          << "  pause <id>              - Save context & pause\n"
                          << "  resume <id>             - Restore context & resume\n"
                          << "  deps <id> <dependsOn>   - Add dependency lock\n"
+                         << "  rmdeps <id> <dependsOn> - Remove dependency lock\n"
                          << "  req <id> <resource>     - Request exclusive resource\n"
                          << "  rel <id> <resource>     - Release exclusive resource\n"
                          << "  schedule [N]            - Run scheduler cycles\n"
